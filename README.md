@@ -18,7 +18,7 @@ El backend está desarrollado con **Spring Boot** y utiliza una base de datos en
 
 Primero, clona el repositorio del proyecto en tu máquina local:
 
-git clone https://github.com/tu_usuario/RefactorStudioAppTareas.git](https://github.com/faustoB010/RefactorStudioAppTareas/tree/main
+git clone https://github.com/faustoB010/RefactorStudioAppTareas/tree/main
 cd springboot-app-intellij
 
 Luego abre el proyecto en Intellij y ejecuta el main de Springboot y se levantará la API en localhost:8080, las operaciones que pueden realizarse con Postman se hacen a través de localhost:8080/api/tareas
