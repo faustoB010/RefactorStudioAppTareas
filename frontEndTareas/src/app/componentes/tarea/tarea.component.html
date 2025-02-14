@@ -1,0 +1,44 @@
+<h2>Lista de Tareas</h2>
+
+<div *ngIf="cargando">Cargando tareas...</div>
+<div *ngIf="errorMensaje" class="error">{{ errorMensaje }}</div>
+
+<div class="contenedor-tareas">
+  <div class="tabla-tareas">
+    <table *ngIf="tareas.length > 0">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Completado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarea of tareas">
+          <td>
+            <input type="text" [(ngModel)]="tarea.titulo" (blur)="actualizarTarea(tarea, 'titulo')" />
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="tarea.descripcion" (blur)="actualizarTarea(tarea, 'descripcion')" />
+          </td>
+          <td>
+            <input type="checkbox" [(ngModel)]="tarea.completado" (change)="actualizarTarea(tarea, 'completado')" />
+          </td>
+          <td>
+            <button (click)="eliminarTarea(tarea.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formulario-tarea">
+    <h3>Agregar Nueva Tarea</h3>
+    <form (ngSubmit)="agregarTarea()">
+      <input type="text" placeholder="Título de la tarea" [(ngModel)]="nuevaTarea.titulo" name="titulo" required />
+      <input type="text" placeholder="Descripción" [(ngModel)]="nuevaTarea.descripcion" name="descripcion" />
+      <button type="submit">Agregar Tarea</button>
+    </form>
+  </div>
+</div>
